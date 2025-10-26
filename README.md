@@ -9,7 +9,7 @@ A tiny TUI notes app written in Go
 
 ## Features
 
-- Сeate, edit, and browse notes directly in your terminal 
+- Create, edit, and browse notes directly in your terminal 
 - Persistent local storage via local database
 
 
