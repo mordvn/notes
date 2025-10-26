@@ -1,10 +1,11 @@
-package main
+package tui
 
 import (
 	"github.com/charmbracelet/bubbles/textarea"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/log"
+	"github.com/mordvn/notes/internal/store"
 )
 
 const (
@@ -15,16 +16,16 @@ const (
 
 type model struct {
 	state       uint
-	store       *Store
-	notes       []Note
-	currentNote Note
+	store       *store.Store
+	notes       []store.Note
+	currentNote store.Note
 	listIndex   int
 	textinput   textinput.Model
 	textarea    textarea.Model
 	exitCode    int
 }
 
-func NewModel(store *Store) (model, error) {
+func NewModel(store *store.Store) (model, error) {
 	notes, err := store.GetAllNotes()
 	if err != nil {
 		return model{}, err
@@ -66,7 +67,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "n":
 				m.textinput.SetValue("")
 				m.textinput.Focus()
-				m.currentNote = Note{}
+				m.currentNote = store.Note{}
 				m.state = stateTitleView
 			case "up", "k":
 				if m.listIndex > 0 {
@@ -120,7 +121,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					return m, tea.Quit
 				}
 				m.listIndex = len(m.notes) - 1
-				m.currentNote = Note{}
+				m.currentNote = store.Note{}
 				m.state = stateListView
 			case "esc":
 				m.state = stateBodyView
