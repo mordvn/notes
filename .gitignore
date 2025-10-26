@@ -33,3 +33,6 @@ go.work.sum
 
 # Database files
 *.db
+
+# Another very "useful" files
+.DS_Store
