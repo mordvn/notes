@@ -20,10 +20,12 @@ type Store struct {
 }
 
 func (s *Store) Init() error {
-	var err error
-	s.conn, err = sql.Open("sqlite3", "./notes.db")
-	if err != nil {
-		return err
+	if s.conn == nil {
+		var err error
+		s.conn, err = sql.Open("sqlite3", "./notes.db")
+		if err != nil {
+			return err
+		}
 	}
 
 	cmd := "Create table if not exists notes (id TEXT PRIMARY KEY, title TEXT, body TEXT);"
