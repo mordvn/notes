@@ -13,7 +13,7 @@ A tiny TUI notes app written in Go
 - Persistent local storage via local database
 
 
-## Run Locally
+## Run 
 
 Clone the project
 
@@ -48,13 +48,6 @@ To run tests, run the following command
 **Client:** BubbleTea, Bubbles, Lip Gloss
 
 **Database:** SQLite3
-
-
-## Lessons Learned
-
-This project started as an experiment to learn Bubble Tea,  
-but it ended up becoming a small, reliable note-taking tool that runs entirely in the terminal.
-
 
 ## License
 
