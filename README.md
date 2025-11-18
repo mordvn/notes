@@ -42,13 +42,6 @@ To run tests, run the following command
   go test .
 ```
 
-
-## Tech Stack
-
-**Client:** BubbleTea, Bubbles, Lip Gloss
-
-**Database:** SQLite3
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
